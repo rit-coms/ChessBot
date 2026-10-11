@@ -39,7 +39,7 @@ def main():
     inst = aa.distance_and_angle(inp)
     angle = inst[1]/math.pi*180
     upperarm_angle = aa.upperarm(inst[0])/math.pi*180
-    forearm_angle = aa.forearm(inst[0])/math.pi*180
+    forearm_angle = 180-aa.forearm(inst[0])/math.pi*180
 
     t.right(angle)
     if angle > 0:
