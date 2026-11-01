@@ -14,7 +14,7 @@ SCREW_LOCATION = [40,-20]
 UPPER_ARM = 57.5   #57.5
 FOREARM = 85    #85
 
-#initial angle is acing right relative to board
+#initial angle is facing right relative to board
 START_ANGLE_UPPER_ARM = 0
 START_ANGLE_FOREARM = 0
 
