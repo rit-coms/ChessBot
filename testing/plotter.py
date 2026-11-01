@@ -28,7 +28,7 @@ def init():
     t.penup()
     t.goto(aa.SCREW_LOCATION)
     t.pendown()
-    t.left(90)
+    t.left(0)
 
 def main():
     """
@@ -37,17 +37,19 @@ def main():
     init()
     inp = [int(input("Input square x: ")),int(input("Input square y: "))]
     inst = aa.distance_and_angle(inp)
-    angle = inst[1]/math.pi*180
+    angle = 90 - inst[1]/math.pi*180
     upperarm_angle = aa.upperarm(inst[0])/math.pi*180
     forearm_angle = 180-aa.forearm(inst[0])/math.pi*180
 
-    t.right(angle)
-    if angle > 0:
+    t.left(angle) #t.right(angle)
+    if angle < 90:  #angle > 0:
         t.left(upperarm_angle)
     else:
         t.right(upperarm_angle)
+    
     t.forward(aa.UPPER_ARM)
-    if angle > 0:
+
+    if angle < 90:  #angle > 0:
         t.right(forearm_angle)
     else:
         t.left(forearm_angle)

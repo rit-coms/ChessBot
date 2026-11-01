@@ -9,9 +9,14 @@ from math import *
 SQUARE_SIZE = 10
 SCREW_OFFSET = 20
 SCREW_LOCATION = [40,-20]
-#Total straight arm length = sqrt(95^2 + 35^2) = 101.24228365658293466623451144951
-UPPER_ARM = 50.621141828291467333117255724753
-FOREARM = 50.621141828291467333117255724753
+#Total straight arm length (for test case) = sqrt(95^2 + 35^2) = 101.24228365658293466623451144951
+#Half length = 50.621141828291467333117255724753
+UPPER_ARM = 57.5   #57.5
+FOREARM = 85    #85
+
+#initial angle is acing right relative to board
+START_ANGLE_UPPER_ARM = 0
+START_ANGLE_FOREARM = 0
 
 def sqr_to_crds(sqr):
     """
@@ -40,7 +45,7 @@ def forearm(len):
     a = FOREARM
     b = UPPER_ARM
     c = len if len <= a+b else a+b
-    return acos((a**2 + b**2 - c**2)/(2*a*b)) #Returns in radians
+    return acos((a**2 + b**2 - c**2)/(2*a*b)) + START_ANGLE_FOREARM*pi/180 #Returns in radians
 
 def upperarm(len):
     """
@@ -49,7 +54,7 @@ def upperarm(len):
     a = FOREARM
     b = UPPER_ARM
     c = len if len <= a+b else a+b
-    return acos((b**2 + c**2 - a**2)/(2*b*c))
+    return acos((b**2 + c**2 - a**2)/(2*b*c)) + START_ANGLE_UPPER_ARM*pi/180
 
 def main():
     """
