@@ -40,7 +40,7 @@ def forearm(len):
     a = FOREARM
     b = UPPER_ARM
     c = len if len <= a+b else a+b
-    return 180-acos((a**2 + b**2 - c**2)/(2*a*b))
+    return acos((a**2 + b**2 - c**2)/(2*a*b)) #Returns in radians
 
 def upperarm(len):
     """
